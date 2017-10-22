@@ -55,3 +55,30 @@ func TestSixShouldGetVI(t *testing.T) {
 		t.Errorf("%s is expected result but got %s", expected, result)
 	}
 }
+
+func TestSevenShouldGetVII(t *testing.T) {
+	expected := "VII"
+	result := ConvertToRoman(7)
+
+	if result != expected {
+		t.Errorf("%s is expected result but got %s", expected, result)
+	}
+}
+
+func TestEightShouldGetVIII(t *testing.T) {
+	expected := "VIII"
+	result := ConvertToRoman(8)
+
+	if result != expected {
+		t.Errorf("%s is expected result but got %s", expected, result)
+	}
+}
+
+func TestNineShouldGetIX(t *testing.T) {
+	expected := "IX"
+	result := ConvertToRoman(9)
+
+	if result != expected {
+		t.Errorf("%s is expected result but got %s", expected, result)
+	}
+}
