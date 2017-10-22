@@ -1,12 +1,13 @@
 package roman
 
 func ConvertToRoman(num int) string {
-	if num == 1 {
-		return "I"
-	} else if num == 2 {
-		return "II"
-	} else if num == 3 {
-		return "III"
+	if num < 4 {
+		var result string
+		for i := 0; i < num; i++ {
+			result += "I"
+		}
+		return result
+	} else {
+		return "IV"
 	}
-	return "I"
 }
