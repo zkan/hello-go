@@ -88,3 +88,12 @@ func TestNumberLessThanFourTeenShouldGetXIAndXIIAndXIII(t *testing.T) {
 		}
 	}
 }
+
+func TestFourteenShouldGetXIV(t *testing.T) {
+	expected := "XIV"
+	result := ConvertToRoman(14)
+
+	if result != expected {
+		t.Errorf("%s is expected result but got %s", expected, result)
+	}
+}

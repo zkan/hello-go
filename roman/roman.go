@@ -15,7 +15,11 @@ func ConvertToRoman(num int) string {
 			result += "I"
 		}
 	} else if remainder == 4 {
-		result = "I" + result
+		if num/5 == 2 {
+			result = result + "IV"
+		} else {
+			result = "I" + result
+		}
 	}
 	return result
 }
