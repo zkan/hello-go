@@ -2,30 +2,20 @@ package roman
 
 import "testing"
 
-func TestOneShouldGetI(t *testing.T) {
-	expected := "I"
-	result := ConvertToRoman(1)
-
-	if result != expected {
-		t.Errorf("%s is expected result but got %s", expected, result)
+func TestNumberLessThanFourShouldGetIAndIIAndIII(t *testing.T) {
+	m := map[int]string{
+		1: "I",
+		2: "II",
+		3: "III",
 	}
-}
 
-func TestTwoShouldGetII(t *testing.T) {
-	expected := "II"
-	result := ConvertToRoman(2)
+	for k, v := range m {
+		expected := v
+		result := ConvertToRoman(k)
 
-	if result != expected {
-		t.Errorf("%s is expected result but got %s", expected, result)
-	}
-}
-
-func TestThreeShouldGetIII(t *testing.T) {
-	expected := "III"
-	result := ConvertToRoman(3)
-
-	if result != expected {
-		t.Errorf("%s is expected result but got %s", expected, result)
+		if result != expected {
+			t.Errorf("%s is expected result but got %s", expected, result)
+		}
 	}
 }
 
@@ -47,30 +37,20 @@ func TestFiveShouldGetV(t *testing.T) {
 	}
 }
 
-func TestSixShouldGetVI(t *testing.T) {
-	expected := "VI"
-	result := ConvertToRoman(6)
-
-	if result != expected {
-		t.Errorf("%s is expected result but got %s", expected, result)
+func TestNumberLessThanNineShouldGetVIAndVIIAndVIII(t *testing.T) {
+	m := map[int]string{
+		6: "VI",
+		7: "VII",
+		8: "VIII",
 	}
-}
 
-func TestSevenShouldGetVII(t *testing.T) {
-	expected := "VII"
-	result := ConvertToRoman(7)
+	for k, v := range m {
+		expected := v
+		result := ConvertToRoman(k)
 
-	if result != expected {
-		t.Errorf("%s is expected result but got %s", expected, result)
-	}
-}
-
-func TestEightShouldGetVIII(t *testing.T) {
-	expected := "VIII"
-	result := ConvertToRoman(8)
-
-	if result != expected {
-		t.Errorf("%s is expected result but got %s", expected, result)
+		if result != expected {
+			t.Errorf("%s is expected result but got %s", expected, result)
+		}
 	}
 }
 
@@ -80,5 +60,31 @@ func TestNineShouldGetIX(t *testing.T) {
 
 	if result != expected {
 		t.Errorf("%s is expected result but got %s", expected, result)
+	}
+}
+
+func TestTenShouldGetX(t *testing.T) {
+	expected := "X"
+	result := ConvertToRoman(10)
+
+	if result != expected {
+		t.Errorf("%s is expected result but got %s", expected, result)
+	}
+}
+
+func TestNumberLessThanFourTeenShouldGetXIAndXIIAndXIII(t *testing.T) {
+	m := map[int]string{
+		11: "XI",
+		12: "XII",
+		13: "XIII",
+	}
+
+	for k, v := range m {
+		expected := v
+		result := ConvertToRoman(k)
+
+		if result != expected {
+			t.Errorf("%s is expected result but got %s", expected, result)
+		}
 	}
 }
