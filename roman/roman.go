@@ -5,14 +5,17 @@ func ConvertToRoman(num int) string {
 	remainder = num % 5
 
 	var result string
+
+	if num >= 5 {
+		result = "V"
+	}
+
 	if remainder > 0 && remainder < 4 {
-		for i := 0; i < num; i++ {
+		for i := 0; i < remainder; i++ {
 			result += "I"
 		}
 	} else if remainder == 4 {
 		result = "IV"
-	} else {
-		result = "V"
 	}
 	return result
 }
