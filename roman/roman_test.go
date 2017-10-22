@@ -37,3 +37,12 @@ func TestFourShouldGetIV(t *testing.T) {
 		t.Errorf("%s is expected result but got %s", expected, result)
 	}
 }
+
+func TestFiveShouldGetV(t *testing.T) {
+	expected := "V"
+	result := ConvertToRoman(5)
+
+	if result != expected {
+		t.Errorf("%s is expected result but got %s", expected, result)
+	}
+}

@@ -1,13 +1,18 @@
 package roman
 
 func ConvertToRoman(num int) string {
-	if num < 4 {
-		var result string
+	var remainder int
+	remainder = num % 5
+
+	var result string
+	if remainder > 0 && remainder < 4 {
 		for i := 0; i < num; i++ {
 			result += "I"
 		}
-		return result
+	} else if remainder == 4 {
+		result = "IV"
 	} else {
-		return "IV"
+		result = "V"
 	}
+	return result
 }
