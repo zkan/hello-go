@@ -19,3 +19,12 @@ func TestTwoShouldGetII(t *testing.T) {
 		t.Errorf("%s is expected result but got %s", expected, result)
 	}
 }
+
+func TestThreeShouldGetIII(t *testing.T) {
+	expected := "III"
+	result := ConvertToRoman(3)
+
+	if result != expected {
+		t.Errorf("%s is expected result but got %s", expected, result)
+	}
+}
