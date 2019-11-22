@@ -1,5 +1,7 @@
 package main
 
+import "strconv"
+
 func FizzBuzz(number int) string {
 	if number%3 == 0 && number%5 == 0 {
 		return "FizzBuzz"
@@ -10,5 +12,5 @@ func FizzBuzz(number int) string {
 	if number%5 == 0 {
 		return "Buzz"
 	}
-	return ""
+	return strconv.Itoa(number)
 }
