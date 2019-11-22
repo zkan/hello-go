@@ -2,18 +2,22 @@ package main
 
 import "testing"
 
-func TestInputThreeShouldGetFizz(t *testing.T) {
-	expected := "Fizz"
-	result := FizzBuzz(3)
-	if result != expected {
-		t.Errorf("It should get %s but got %s", expected, result)
-	}
+type test struct {
+	number int
+	result string
 }
 
-func TestInputSixShouldGetFizz(t *testing.T) {
-	expected := "Fizz"
-	result := FizzBuzz(6)
-	if result != expected {
-		t.Errorf("It should get %s but got %s", expected, result)
+func TestFizzBuzz(t *testing.T) {
+	var tests = []test{
+		test{number: 3, result: "Fizz"},
+		test{number: 6, result: "Fizz"},
+	}
+
+	for _, each := range tests {
+		var result string = FizzBuzz(each.number)
+
+		if result != each.result {
+			t.Errorf("It should get %s but got %s", each.result, result)
+		}
 	}
 }
