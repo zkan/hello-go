@@ -11,6 +11,8 @@ func TestFizzBuzz(t *testing.T) {
 	var tests = []test{
 		test{number: 3, result: "Fizz"},
 		test{number: 6, result: "Fizz"},
+		test{number: 5, result: "Buzz"},
+		test{number: 10, result: "Buzz"},
 	}
 
 	for _, each := range tests {
