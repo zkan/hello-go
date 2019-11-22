@@ -13,6 +13,8 @@ func TestFizzBuzz(t *testing.T) {
 		test{number: 6, result: "Fizz"},
 		test{number: 5, result: "Buzz"},
 		test{number: 10, result: "Buzz"},
+		test{number: 15, result: "FizzBuzz"},
+		test{number: 30, result: "FizzBuzz"},
 	}
 
 	for _, each := range tests {
