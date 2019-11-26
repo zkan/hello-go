@@ -72,7 +72,7 @@ func TestGetSmoothNumbers(t *testing.T) {
 	})
 
 	t.Run("Input60ShouldGet5Smooth", func(t *testing.T) {
-		expected := "5-smooth"
+		expected := "Hamming number"
 		result := GetSmoothNumber(60)
 
 		if result != expected {
