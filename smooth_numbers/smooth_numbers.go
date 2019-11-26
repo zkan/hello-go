@@ -52,5 +52,5 @@ func GetSmoothNumber(number int) string {
 	} else if getMaxIn(primeFactors) == 7 {
 		return "humble numbers"
 	}
-	return ""
+	return "non-smooth"
 }
