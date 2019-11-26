@@ -79,4 +79,13 @@ func TestGetSmoothNumbers(t *testing.T) {
 			t.Errorf("It should get %s but got %s", expected, result)
 		}
 	})
+
+	t.Run("Input98ShouldGetHumbleNumbers", func(t *testing.T) {
+		expected := "humble numbers"
+		result := GetSmoothNumber(98)
+
+		if result != expected {
+			t.Errorf("It should get %s but got %s", expected, result)
+		}
+	})
 }

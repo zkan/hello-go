@@ -49,6 +49,8 @@ func GetSmoothNumber(number int) string {
 		return "3-smooth"
 	} else if getMaxIn(primeFactors) == 5 {
 		return "5-smooth"
+	} else if getMaxIn(primeFactors) == 7 {
+		return "humble numbers"
 	}
 	return ""
 }
