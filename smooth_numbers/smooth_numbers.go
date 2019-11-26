@@ -42,9 +42,10 @@ func getMaxIn(numbers []int) int {
 }
 
 func GetSmoothNumber(number int) string {
-	if number == 16 {
+	primeFactors := getPrimeFactors(number)
+	if getMaxIn(primeFactors) == 2 {
 		return "power of 2"
-	} else if number == 36 {
+	} else if getMaxIn(primeFactors) == 3 {
 		return "3-smooth"
 	}
 	return ""
