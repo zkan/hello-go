@@ -1,5 +1,6 @@
 package main
 
+import "reflect"
 import "testing"
 
 func TestIsPrime(t *testing.T) {
@@ -18,6 +19,26 @@ func TestIsPrime(t *testing.T) {
 
 		if result != expected {
 			t.Errorf("It should get %t but got %t", expected, result)
+		}
+	})
+}
+
+func TestGetPrimeFactors(t *testing.T) {
+	t.Run("Input12ShouldGet223", func(t *testing.T) {
+		expected := []int{2, 2, 3}
+		results := getPrimeFactors(12)
+
+		if !reflect.DeepEqual(results, expected) {
+			t.Errorf("It should get %v but got %v", expected, results)
+		}
+	})
+
+	t.Run("Input60ShouldGet2235", func(t *testing.T) {
+		expected := []int{2, 2, 3, 5}
+		results := getPrimeFactors(60)
+
+		if !reflect.DeepEqual(results, expected) {
+			t.Errorf("It should get %v but got %v", expected, results)
 		}
 	})
 }

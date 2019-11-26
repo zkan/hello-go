@@ -13,6 +13,22 @@ func isPrime(number int) bool {
 	return false
 }
 
+func getPrimeFactors(number int) []int {
+	var results []int
+
+	i := 2
+	for i <= number {
+		if isPrime(i) && number%i == 0 {
+			results = append(results, i)
+			number = number / i
+		} else {
+			i++
+		}
+	}
+
+	return results
+}
+
 func GetSmoothNumber(number int) string {
 	if number == 16 {
 		return "power of 2"
