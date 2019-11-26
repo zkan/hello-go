@@ -29,6 +29,18 @@ func getPrimeFactors(number int) []int {
 	return results
 }
 
+func getMaxIn(numbers []int) int {
+	max := numbers[0]
+
+	for _, value := range numbers {
+		if value > max {
+			max = value
+		}
+	}
+
+	return max
+}
+
 func GetSmoothNumber(number int) string {
 	if number == 16 {
 		return "power of 2"

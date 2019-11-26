@@ -43,6 +43,15 @@ func TestGetPrimeFactors(t *testing.T) {
 	})
 }
 
+func TestGetMaxIn(t *testing.T) {
+	expected := 5
+	result := getMaxIn([]int{2, 2, 3, 5})
+
+	if result != expected {
+		t.Errorf("It should get %v but got %v", expected, result)
+	}
+}
+
 func TestGetSmoothNumbers(t *testing.T) {
 	t.Run("Input16ShouldGetPowerOf2", func(t *testing.T) {
 		expected := "power of 2"
