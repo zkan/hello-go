@@ -1,9 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"rsc.io/quote"
+)
 
 func Hello() string {
-	return "Hello"
+	return quote.Hello()
 }
 
 func main() {
