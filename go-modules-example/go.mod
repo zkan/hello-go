@@ -1,3 +1,3 @@
-module github.com/zkan/go-modules-example
+module github.com/zkan/hello-go/go-modules-example
 
 go 1.17
