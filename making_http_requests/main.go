@@ -18,12 +18,12 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+	defer resp.Body.Close()
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		log.Fatalln(err)
 	}
-
 	sb := string(body)
 	log.Printf(sb)
 
@@ -33,14 +33,12 @@ func main() {
 		"email": "Toby@example.com",
 	})
 	responseBody := bytes.NewBuffer(postBody)
-	//Leverage Go's HTTP Post function to make request
 	resp, err = http.Post("https://postman-echo.com/post", "application/json", responseBody)
-	//Handle Error
 	if err != nil {
 		log.Fatalf("An Error Occured %v", err)
 	}
 	defer resp.Body.Close()
-	//Read the response body
+
 	body, err = ioutil.ReadAll(resp.Body)
 	if err != nil {
 		log.Fatalln(err)
@@ -52,7 +50,6 @@ func main() {
 	fiatCurrency := flag.String(
 		"fiat", "USD", "The name of the fiat currency you would like to know the price of your crypto in",
 	)
-
 	nameOfCrypto := flag.String(
 		"crypto", "BTC", "Input the name of the CryptoCurrency you would like to know the price of",
 	)
