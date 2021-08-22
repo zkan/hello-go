@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -42,14 +43,40 @@ func GetBreeds(w http.ResponseWriter, r *http.Request) {
 	// fmt.Println(bResp)
 }
 
+type RandomBreed struct {
+	Message string `json:"message"`
+	Status  string `json:"status"`
+}
+
+func GetRandomBreed(w http.ResponseWriter, r *http.Request) {
+	url := "https://dog.ceo/api/breeds/image/random"
+	resp, err := http.Get(url)
+	if err != nil {
+		log.Fatal("Ooops.. an error occurred, please try again")
+	}
+	defer resp.Body.Close()
+
+	fmt.Println(resp.Body)
+
+	var breed RandomBreed
+	if err := json.NewDecoder(resp.Body).Decode(&breed); err != nil {
+		log.Fatal("ooopsss! an error occurred, please try again")
+	}
+
+	fmt.Println(breed.Message)
+	fmt.Println(breed.Status)
+
+	json.NewEncoder(w).Encode(breed)
+}
+
 func main() {
 	fmt.Println("Hello!")
 
-	var router *mux.Router
-	router = mux.NewRouter().StrictSlash(true)
-	router.Use(commonMiddleware)
+	r := mux.NewRouter().StrictSlash(true)
+	r.Use(commonMiddleware)
 
-	router.HandleFunc("/breeds", GetBreeds).Methods("GET")
+	r.HandleFunc("/breeds", GetBreeds).Methods("GET")
+	r.HandleFunc("/random", GetRandomBreed).Methods("GET")
 
-	log.Fatal(http.ListenAndServe(":8080", router))
+	log.Fatal(http.ListenAndServe(":8080", r))
 }
