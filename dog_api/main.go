@@ -1,6 +1,7 @@
 package main
 
 import (
+	"database/sql"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -8,6 +9,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 // type breed struct{}
@@ -66,6 +68,19 @@ func GetRandomBreed(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(breed.Message)
 	fmt.Println(breed.Status)
 
+	db, err := sql.Open("sqlite3", "./breed.db")
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+	defer db.Close()
+
+	_, err = db.Exec("INSERT INTO breed (message, status) VALUES(?, ?);", breed.Message, breed.Status)
+	if err != nil {
+		w.WriteHeader(500)
+		json.NewEncoder(w).Encode(err)
+		return
+	}
 	json.NewEncoder(w).Encode(breed)
 }
 
