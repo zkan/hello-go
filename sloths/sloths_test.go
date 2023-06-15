@@ -18,3 +18,15 @@ func TestIsSlothful(t *testing.T) {
 	}
 
 }
+
+func TestHibiscusEmoji(t *testing.T) {
+	if !IsSlothful("Nothing like an iced hibiscus tea! 🌺") {
+		t.Error("Nothing like an iced hibiscus tea! 🌺 " +
+			"is supposed to be slothful")
+	}
+
+	if IsSlothful("Get your 🌺 flowers! They're going fast! 🏎️") {
+		t.Error("Get your 🌺 flowers! They're going fast! 🏎️ " +
+			"is not supposed to be slothful")
+	}
+}
