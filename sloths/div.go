@@ -18,5 +18,7 @@ func (s standardRand) randomInt(max int) int {
 
 func divByRand(numerator int, r randNumberGenerator) int {
 	//return numerator / int(rand.Intn(10))
-	return numerator / r.randomInt(10)
+	//return numerator / r.randomInt(10)
+	denominator := 1 + int(r.randomInt(10))
+	return numerator / denominator
 }

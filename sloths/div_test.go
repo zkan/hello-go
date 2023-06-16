@@ -21,7 +21,7 @@ func TestDivByRand(t *testing.T) {
 	// passes 10 into randomInt, we pass 10 in as the argument
 	// to go with randomInt, and specify that we want the
 	// method to return 6.
-	m.On("randomInt", 10).Return(6)
+	m.On("randomInt", 10).Return(5)
 
 	// now run divByRand and assert that we got back the
 	// return value we expected, just like in a Go test that
@@ -35,4 +35,14 @@ func TestDivByRand(t *testing.T) {
 	// check that randomInt was called with the number 10;
 	// if not then the test fails
 	m.AssertCalled(t, "randomInt", 10)
+}
+
+func TestDivByRandCantDivideByZero(t *testing.T) {
+	m := newMockRand()
+	m.On("randomInt", 10).Return(0)
+
+	quotient := divByRand(30, m)
+	if quotient != 30 {
+		t.Errorf("expected quotient to be 30, got %d", quotient)
+	}
 }
